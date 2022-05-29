@@ -11,7 +11,7 @@ public class FindAllTest {
 	public static void main(String[] args) {
 		FindAllEmployeeLogic logic = new FindAllEmployeeLogic();
 		List<Employee> empList = new ArrayList<>();
-		empList = logic.getEmpList();
+		logic.execute(empList);
 		for (Employee emp : empList) {
 			System.out.println(emp);
 		}

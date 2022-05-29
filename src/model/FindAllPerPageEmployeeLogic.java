@@ -7,17 +7,22 @@ import dao.EmployeeDAO;
 import model.bean.Employee;
 
 public class FindAllPerPageEmployeeLogic implements CommandInterface {
-	List<Employee> empList = new ArrayList<>();
+	// List<Employee> empList = new ArrayList<>();
 	
 	public void execute() {}
 	
-	public void execute(int skip, int perPage) {
+	public void execute(int skip, int perPage, List<Employee> empList) {
 		EmployeeDAO dao = new EmployeeDAO();
-		empList = dao.findAll(skip, perPage);
+		List<Employee> _empList = dao.findAll(skip, perPage);
+		for (Employee emp : _empList) {
+			empList.add(emp);
+		}
 	}
 	
+	/*
 	public List<Employee> getEmpList(int skip, int perPage) {
 		execute(skip, perPage);
 		return empList;
 	}
+	*/
 }

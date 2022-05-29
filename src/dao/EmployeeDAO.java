@@ -40,6 +40,13 @@ public class EmployeeDAO {
 			+ " FROM findAll_v"
 	       + " LIMIT ?, ?";
 			
+	private final String SQL_FIND_BY_ID =
+			"SELECT id, pass, name, gender_id, gname, age," 
+	       + " state_id, sname," 
+	       + " dept_id, dname"
+			+ " FROM findAll_v"
+	       + " WHERE id = ?";
+
 	
 	public int getSize() {
 		int count = 0;
@@ -121,4 +128,31 @@ public class EmployeeDAO {
 		return employeeList;
  	}
 
+	public Employee findEmployeeById(int _id) {
+		Employee employee = null;
+		try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
+			PreparedStatement pStmt = conn.prepareStatement(SQL_FIND_BY_ID);
+			pStmt.setInt(1, _id);
+			ResultSet rs = pStmt.executeQuery();
+			if (rs.next()) {
+				int id = rs.getInt("id");
+				String pass = rs.getString("pass");
+				String name = rs.getString("name");
+				String gid = rs.getString("gender_id");
+				String gname = rs.getString("gname");
+				Gender gender = new Gender(gid, gname);
+				int age = rs.getInt("age");
+				String sid = rs.getString("state_id");
+				String sname = rs.getString("sname");
+				State state = new State(sid, sname);
+				String did = rs.getString("dept_id");
+				String dname = rs.getString("dname");
+				Dept dept = new Dept(did, dname);
+				employee = new Employee(id, pass, name, gender, age, state, dept);
+			}
+		} catch (SQLException e) {
+			throw new SQLRuntimeException(e.getMessage());
+		}
+		return employee;
+	}
 }

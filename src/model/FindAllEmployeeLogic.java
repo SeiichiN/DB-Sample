@@ -7,6 +7,7 @@ import dao.EmployeeDAO;
 import model.bean.Employee;
 
 public class FindAllEmployeeLogic implements CommandInterface {
+	/*
 	List<Employee> empList = new ArrayList<>();
 	
 	public void execute() {
@@ -17,5 +18,16 @@ public class FindAllEmployeeLogic implements CommandInterface {
 	public List<Employee> getEmpList() {
 		execute();
 		return empList;
+	}
+	*/
+	
+	public void execute() {}
+	
+	public void execute(List<Employee> empList) {
+		EmployeeDAO dao = new EmployeeDAO();
+		List<Employee> elist = dao.findAll();
+		for (Employee emp : elist) {
+			empList.add(emp);
+		}
 	}
 }
