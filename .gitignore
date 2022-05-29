@@ -25,4 +25,6 @@ hs_err_pid*
 # added by se-ichi
 *~
 README.html
+!jstl-api-1.2.jar
+!jstl-impl-1.2.jar
 
