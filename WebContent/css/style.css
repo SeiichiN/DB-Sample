@@ -1,0 +1,224 @@
+@charset "UTF-8";
+
+body, h1, h2, h3, p, ul {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style-type: none;
+}
+
+button {
+	cursor: pointer;
+}
+
+header {
+	background-color: lightblue;
+	border-bottom: solid 1px #ddd;
+	margin-bottom: 20px;
+	padding: 10px 0;
+}
+
+footer {
+	background-color: lightblue;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	padding: 10px 0;
+}
+
+header h1 {
+	font-size: 1.5em;
+	width: 90%;
+	margin: 0 auto;
+}
+
+#content {
+	width: 90%;
+	margin: 0 auto;
+	margin-bottom: 60px;
+}
+
+#main {
+	position: relative;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+th, td {
+	border: solid 1px #ddd;
+}
+
+td {
+	padding: 10px 10px;
+}
+
+.no-border {
+	border: none;
+}
+
+.no-btn {
+	background: transparent;
+	border: none;
+}
+
+.img-btn {
+	padding-left: 5px;
+	padding-right: 5px;
+	width: 24px;
+}
+
+#pagenation {
+	margin-top: 10px;
+}
+
+#pagenation ul {
+	display: flex;
+	justify-content: center;
+}
+
+#pagenation li {
+	margin: 0 5px;
+}
+
+/*********************
+ newEmp.jsp  confirmEmp.jsp
+ **********************/
+form td {
+	padding: 5px 10px;
+}
+ 
+.indata {
+ 	font-size: 1.2em;
+}
+ 
+.submit-btn-00,
+.submit-btn,
+.cancel-btn {
+ 	width: 100px;
+ 	position: absolute;
+ 	line-height: 24px;
+ 	margin-top: 20px;
+}
+ 
+.submit-btn-00 {
+	right: 240px;
+}
+.submit-btn {
+ 	right: 130px;
+}
+  
+.cancel-btn {
+  	right: 20px;
+}
+ 
+/***************
+  aside.jsp
+ *****************/
+#sub-content {
+	position: relative;
+}
+
+#menu-line {
+	height: 10px;
+	position: relative;
+}
+#menu-btn {
+	position: absolute;
+	right: 0;
+	top: -20px;
+	width: 65px;
+	line-height: 45px;
+	text-decoration: underline;
+}
+.no-disp {
+	display: none;
+}
+
+.disp {
+	display: block;
+}
+
+#sub-content ul {
+	width: 200px;
+	margin: 0 auto;
+}
+
+#sub-content li {
+  	margin-bottom: 10px;
+}
+.search-box form {
+  	display: flex;
+}
+.search-box input[type="text"] {
+  	width: 150px;
+  	line-height: 45px;
+}
+  
+.search-box input[type="submit"] {
+  	width: 65px;
+  	line-height: 45px;
+  	text-decoration: underline;
+  	cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+	#content {
+		display: flex;
+		flex-direction: row-reverse;
+		width: 80%;
+	}
+	
+	#sub-content {
+		flex-basis: 20%;
+	}
+	
+	#main {
+		flex-basis: 80%;
+	}
+	
+	nav {
+		text-align: left;
+	}
+	
+	#menu-btn {
+		display: none;
+	}
+	
+	.no-disp {
+		display: block;
+	}
+	
+	td {
+		padding: 5px 10px;
+	}
+	.img-btn {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	
+	/******** aside.jsp **********/
+	
+	.search-box input[type="text"] {
+	  	line-height: 24px;
+	}
+	  
+	.search-box input[type="submit"] {
+	  	line-height: 24px;
+	}
+	
+}
+
+@media screen and (min-width: 1024px) {
+	header h1 {
+		width: 80%;
+	}
+	
+	#content {
+		width: 70%;
+	}
+}
