@@ -5,7 +5,7 @@
 	<div id="menu-line"><div id="menu-btn">メニュー</div></div>
 	<nav id="menu" class="no-disp">
 		<ul>
-			<li><a href="<%=request.getContextPath()%>/newEmp">新規社員登録</a></li>
+			<li><a href="<%=request.getContextPath()%>/input">新規社員登録</a></li>
 			<li class="search-box">
 				<form action="<%=request.getContextPath()%>/search_id" method="post">
 					<input placeholder="社員ID" type="text" name="id">

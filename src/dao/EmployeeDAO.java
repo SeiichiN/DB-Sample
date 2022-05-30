@@ -20,17 +20,19 @@ public class EmployeeDAO {
 	private final String DB_PASS = "";
 	
 	private final String SQL_FIND_ALL =
-			"SELECT id, pass, name, gender_id, g.gname AS gname," 
-			+ " timestampdiff(YEAR, e.birthday, curdate()) AS age," 
-	       + " state_id, s.sname AS sname," 
-	       + " dept_id, d.dname AS dname"
-			+ " FROM employee e"
-			+ "  INNER JOIN gender g"
-			+ "  ON e.gender_id = g.gid"
-			+ "    INNER JOIN state s"
-			+ "    on e.state_id = s.sid"
-			+ "      LEFT OUTER JOIN department d"
-			+ "      ON e.dept_id = d.did";
+			"SELECT * FROM findAll_v";
+	
+//			"SELECT id, pass, name, gender_id, g.gname AS gname," 
+//			+ " timestampdiff(YEAR, e.birthday, curdate()) AS age," 
+//	       + " state_id, s.sname AS sname," 
+//	       + " dept_id, d.dname AS dname"
+//			+ " FROM employee e"
+//			+ "  INNER JOIN gender g"
+//			+ "  ON e.gender_id = g.gid"
+//			+ "    INNER JOIN state s"
+//			+ "    on e.state_id = s.sid"
+//			+ "      LEFT OUTER JOIN department d"
+//			+ "      ON e.dept_id = d.did";
 
 	private final String SQL_FIND_ALL_LIMIT =
 			"SELECT id, pass, name, gender_id, gname," 
