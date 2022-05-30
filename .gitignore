@@ -28,3 +28,12 @@ README.html
 !jstl-api-1.2.jar
 !jstl-impl-1.2.jar
 
+/.metadata/
+/Servers/
+.settings/
+build/
+bin/
+.classpath
+.project
+META-INF/
+
