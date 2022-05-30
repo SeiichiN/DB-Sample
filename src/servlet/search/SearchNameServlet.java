@@ -1,6 +1,7 @@
 package servlet.search;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -20,7 +21,8 @@ public class SearchNameServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = getParam(request);
 		FindEmployeeByNameLogic logic = new FindEmployeeByNameLogic();
-		List<Employee> empList = logic.execute(name);
+		List<Employee> empList = new ArrayList<>(); 
+		logic.execute(name, empList);	
 		request.setAttribute("empList", empList);
 		String url = "/WEB-INF/jsp/search/searchNameDone.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);

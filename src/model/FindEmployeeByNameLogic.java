@@ -16,7 +16,7 @@ public class FindEmployeeByNameLogic implements CommandInterface {
 		EmployeeDAO dao = new EmployeeDAO();
 		List<Employee> _empList = dao.findEmployeeByName(name);
 		for (Employee emp : _empList) {
-			
+			empList.add(emp);
 		}
 	}
 }

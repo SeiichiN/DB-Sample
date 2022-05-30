@@ -47,6 +47,12 @@ public class EmployeeDAO {
 			+ " FROM findAll_v"
 	       + " WHERE id = ?";
 
+	private final String SQL_FIND_BY_NAME =
+			"SELECT id, pass, name, gender_id, gname, age," 
+	       + " state_id, sname," 
+	       + " dept_id, dname"
+			+ " FROM findAll_v"
+	       + " WHERE name like ?";
 	
 	public int getSize() {
 		int count = 0;
@@ -154,5 +160,35 @@ public class EmployeeDAO {
 			throw new SQLRuntimeException(e.getMessage());
 		}
 		return employee;
+	}
+
+	public List<Employee> findEmployeeByName(String _name) {
+		List<Employee> empList = new ArrayList<>();
+		
+		try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
+			PreparedStatement pStmt = conn.prepareStatement(SQL_FIND_BY_NAME);
+			pStmt.setString(1, "%" + _name + "%");
+			ResultSet rs = pStmt.executeQuery();
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String pass = rs.getString("pass");
+				String name = rs.getString("name");
+				String gid = rs.getString("gender_id");
+				String gname = rs.getString("gname");
+				Gender gender = new Gender(gid, gname);
+				int age = rs.getInt("age");
+				String sid = rs.getString("state_id");
+				String sname = rs.getString("sname");
+				State state = new State(sid, sname);
+				String did = rs.getString("dept_id");
+				String dname = rs.getString("dname");
+				Dept dept = new Dept(did, dname);
+				Employee employee = new Employee(id, pass, name, gender, age, state, dept);
+				empList.add(employee);
+			}
+		} catch (SQLException e) {
+			throw new SQLRuntimeException(e.getMessage());
+		}
+		return empList;
 	}
 }
