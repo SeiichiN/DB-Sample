@@ -1,8 +1,6 @@
 package servlet.regist;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,12 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.FindGenderByIdLogic;
 import model.RegistEmployeeLogic;
 import model.bean.Employee;
-import model.bean.Gender;
 import servlet.util.EmployeeFromParam;
-import servlet.util.Validator;
 
 
 @WebServlet("/registDone")
