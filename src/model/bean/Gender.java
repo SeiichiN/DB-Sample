@@ -20,4 +20,10 @@ public class Gender implements Serializable {
 	public String getGname() {
 		return gname;
 	}
+	public void setGid(String gid) {
+		this.gid = gid;
+	}
+	public void setGname(String gname) {
+		this.gname = gname;
+	}
 }

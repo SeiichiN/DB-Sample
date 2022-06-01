@@ -8,25 +8,25 @@ public class Employee implements Serializable {
 	private String pass;
 	private String name;
 	private Gender gender;
-	private int age;
+	private String birthday;
 	private State state;
 	private Dept dept;
 	
 	public Employee () {}
 	public Employee(int id, String pass, String name, Gender gender, 
-			         int age, State state, Dept dept) {
+			         String birthday, State state, Dept dept) {
 		this.id = id;
 		this.pass = pass;
 		this.name = name;
 		this.gender = gender;
-		this.age = age;
+		this.birthday = birthday;
 		this.state = state;
 		this.dept = dept;
 	}
 	public String toString() {
 		return id + " : " + pass + " : " + name
 				+ " : " + gender.getGname()
-				+ " : " + age
+				+ " : " + birthday
 				+ " : " + state.getSname()
 				+ " : " + dept.getDname();
 	}
@@ -54,11 +54,11 @@ public class Employee implements Serializable {
 	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
-	public int getAge() {
-		return age;
+	public String getBirthday() {
+		return birthday;
 	}
-	public void setAge(int age) {
-		this.age = age;
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
 	}
 	public State getState() {
 		return state;

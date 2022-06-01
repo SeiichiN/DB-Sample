@@ -5,7 +5,7 @@ select
   name, 
   e.gender_id, 
   g.gname, 
-  timestampdiff(YEAR, birthday, curdate()) as age, 
+  TO_CHAR(e.birthday, 'yyyy/MM/dd') AS birthday, 
   state_id, 
   s.sname, 
   dept_id, 

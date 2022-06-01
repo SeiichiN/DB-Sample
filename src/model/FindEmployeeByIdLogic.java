@@ -1,8 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import dao.EmployeeDAO;
 import model.bean.Employee;
 
@@ -16,7 +13,7 @@ public class FindEmployeeByIdLogic implements CommandInterface {
 		emp.setPass(_emp.getPass());
 		emp.setName(_emp.getName());
 		emp.setGender(_emp.getGender());
-		emp.setAge(_emp.getAge());
+		emp.setBirthday(_emp.getBirthday());
 		emp.setState(_emp.getState());
 		emp.setDept(_emp.getDept());
 	}

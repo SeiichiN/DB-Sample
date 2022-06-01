@@ -23,7 +23,7 @@
 				<tr>
 					<th>ID</th>
 					<th>名前</th>
-					<th>年齢</th>
+					<th>誕生日</th>
 					<th class="no-border"></th>
 					<th class="no-border"></th>					
 				</tr>
@@ -31,7 +31,7 @@
 					<tr>
 						<td><c:out value="${emp.id}" /></td>
 						<td><c:out value="${emp.name}" /></td>
-						<td><c:out value="${emp.age}" /></td>
+						<td><c:out value="${emp.birthday}" /></td>
 						<td class="no-border img-btn">
 							<form action="<%=request.getContextPath()%>/edit" method="post">
 								<input type="hidden" name="id" value="${emp.id}">

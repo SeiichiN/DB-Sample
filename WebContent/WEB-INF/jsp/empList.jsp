@@ -24,7 +24,7 @@
 					<th>ID</th>
 					<th>名前</th>
 					<th>性別</th>
-					<th>年齢</th>
+					<th>誕生日</th>
 					<th>出身</th>
 					<th>部署名</th>
 					<th class="no-border"></th>
@@ -35,7 +35,7 @@
 						<td><c:out value="${emp.id}" /></td>
 						<td><c:out value="${emp.name}" /></td>
 						<td><c:out value="${emp.gender.gname}" /></td>
-						<td><c:out value="${emp.age}" /></td>
+						<td><c:out value="${emp.birthday}" /></td>
 						<td><c:out value="${emp.state.sname}" /></td>
 						<td><c:out value="${emp.dept.dname}" /></td>
 						<td class="no-border img-btn">

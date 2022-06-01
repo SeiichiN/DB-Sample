@@ -16,16 +16,16 @@
 	<div id="content">
 		<jsp:include page="/WEB-INF/jsp/common/aside.jsp" />
 		<main id="main">
-			<h1>社員ID検索・結果</h1>
+			<h1>新規社員登録・確認</h1>
 
 			<table>
 				<tr>
-					<th>ID</th>
-					<td><c:out value="${emp.id}" /></td>
-				</tr>
-				<tr>
 					<th>名前</th>
 					<td><c:out value="${emp.name}" /></td>
+				</tr>
+				<tr>
+					<th>パスワード</th>
+					<td><c:out value="${emp.pass}" /></td>
 				</tr>
 				<tr>
 					<th>性別</th>
@@ -44,16 +44,18 @@
 					<td><c:out value="${emp.dept.dname}" /></td>
 				</tr>
 			</table>
-			<form action="<%=request.getContextPath()%>/edit" method="post">
-				<input type="hidden" name="id" value="${emp.id}"> <input
-					class="submit-btn-00" type="submit" value="編集">
+			<form action="<%=request.getContextPath()%>/registDone" method="post">
+				<input type="hidden" name="id" value="${emp.id}">
+				<input type="hidden" name="name" value="${emp.name}"> 
+				<input type="hidden" name="pass" value="${emp.pass}"> 
+				<input type="hidden" name="gender" value="${emp.gender.gid}"> 
+				<input type="hidden" name="birthday" value="${emp.birthday}"> 
+				<input type="hidden" name="state" value="${emp.state.sid}"> 
+				<input type="hidden" name="dept" value="${emp.dept.did}"> 
+				<input class="submit-btn" type="submit" value="登録">
 			</form>
-			<form action="<%=request.getContextPath()%>/delete" method="post">
-				<input type="hidden" name="id" value="${emp.id}"> <input
-					class="submit-btn" type="submit" value="削除">
-			</form>
-			<a href="<%=request.getContextPath()%>/list">
-				<button class="cancel-btn">一覧</button>
+			<a href="<%=request.getContextPath()%>/input">
+				<button class="cancel-btn">取消</button>
 			</a>
 		</main>
 	</div>
