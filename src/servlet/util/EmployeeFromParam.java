@@ -9,9 +9,13 @@ import model.bean.Dept;
 import model.bean.Employee;
 import model.bean.Gender;
 import model.bean.State;
+import util.Tool;
 
 public class EmployeeFromParam {
 	public void set(Employee emp, HttpServletRequest request) {
+		int id = Tool.myParseInt(request.getParameter("id"), 0);
+		emp.setId(id);
+		
 		emp.setName(request.getParameter("name"));
 		emp.setPass(request.getParameter("pass"));
 

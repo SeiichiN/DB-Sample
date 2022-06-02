@@ -13,6 +13,9 @@ public class Const {
 	public static final String DATE_FORMAT = "yyyy/MM/dd";
 	public static final String PREG_DEPT = "^d[0-9]{2}$";
 	
+	public static final String H1WORD_REGIST = "新規社員登録";
+	public static final String H1WORD_UPDATE = "社員編集";
+	
 	public static final String[][] state = {
 			{"01", "北海道"},
 			{"02", "青森県"},

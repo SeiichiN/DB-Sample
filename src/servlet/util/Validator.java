@@ -28,6 +28,12 @@ public class Validator {
 	 */
 	public List<String> inputCheck(Employee employee, HttpServletRequest request) {
 		List<String> errorMsgList = new ArrayList<>();
+		
+		String id = request.getParameter("id");
+		if (inputIdCheck(id, errorMsgList)) {
+			employee.setId(Tool.myParseInt(id, 0));
+		}
+		
 		String name = request.getParameter("name");
 		if (inputNameCheck(name, errorMsgList)) {
 			employee.setName(name);
@@ -67,7 +73,14 @@ public class Validator {
 		
 		return errorMsgList;
 	}
-	
+
+	private boolean inputIdCheck(String id, List<String> errorMsgList) {
+		boolean result = true;
+		if (isNull(id)) {
+			result = false;
+		}
+		return result;
+	}
 	private boolean inputNameCheck(String name, List<String> errorMsgList) {
 		boolean result = true;
 		if (isNull(name)) {

@@ -58,6 +58,12 @@ public class EmployeeDAO {
 			"INSERT INTO employee (name, pass, gender_id, state_id, birthday, dept_id) "
 			+ " VALUES (?, ?, ?, ?, ?, ?)";
 	
+	private final String SQL_UPDATE =
+			"UPDATE employee SET name = ?, pass = ?, gender_id = ?,"
+			+ " state_id = ?, birthday = ?, dept_id = ?"
+			+ " WHERE id = ?";	
+
+	
 	public int getSize() {
 		int count = 0;
 		try (Connection conn = DriverManager.getConnection(DBConst.DB_URL, DBConst.DB_USER, DBConst.DB_PASS)) {
@@ -218,4 +224,26 @@ public class EmployeeDAO {
 		return true;
 	}
 	
+	public boolean update(Employee employee) {
+		try (Connection conn = DriverManager.getConnection(DBConst.DB_URL, DBConst.DB_USER, DBConst.DB_PASS)) {
+			PreparedStatement pStmt = conn.prepareStatement(SQL_UPDATE);
+			pStmt.setString(1, employee.getName());
+			pStmt.setString(2, employee.getPass());
+			pStmt.setString(3, employee.getGender().getGid());
+			pStmt.setString(4, employee.getState().getSid());
+			String birthday = employee.getBirthday();
+			pStmt.setString(5, Tool.convDate(birthday));
+			pStmt.setString(6, employee.getDept().getDid());
+			pStmt.setInt(7,  employee.getId());
+			int result = pStmt.executeUpdate();
+			if (result != 1) {
+				return false;
+			}
+		} catch (SQLException e) {
+			// throw new SQLRuntimeException(e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
 }

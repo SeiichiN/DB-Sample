@@ -16,11 +16,11 @@
 	<div id="content">
 		<jsp:include page="/WEB-INF/jsp/common/aside.jsp" />
 		<main id="main">
-			<h1>新規社員登録・確認</h1>
-
+			<h1>社員編集・確認</h1>
+			
 			<jsp:include page="/WEB-INF/jsp/common/confirm.jsp" />
 
-			<form action="<%=request.getContextPath()%>/registDone" method="post">
+			<form action="<%=request.getContextPath()%>/updateDone" method="post">
 				<input type="hidden" name="id" value="${emp.id}">
 				<input type="hidden" name="name" value="${emp.name}"> 
 				<input type="hidden" name="pass" value="${emp.pass}"> 
@@ -28,9 +28,9 @@
 				<input type="hidden" name="birthday" value="${emp.birthday}"> 
 				<input type="hidden" name="state" value="${emp.state.sid}"> 
 				<input type="hidden" name="dept" value="${emp.dept.did}"> 
-				<input class="submit-btn" type="submit" value="登録">
+				<input class="submit-btn" type="submit" value="更新">
 			</form>
-			<a href="<%=request.getContextPath()%>/input">
+			<a href="<%=request.getContextPath()%>/list">
 				<button class="cancel-btn">取消</button>
 			</a>
 		</main>

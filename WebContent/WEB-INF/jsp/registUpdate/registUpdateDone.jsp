@@ -16,17 +16,13 @@
 	<div id="content">
 		<jsp:include page="/WEB-INF/jsp/common/aside.jsp" />
 		<main id="main">
-			<h1>新規社員登録</h1>
-			<c:forEach var="errorMsg" items="${errorMsgList}">
-				<p><c:out value="${errorMsg}"/></p>
-			</c:forEach>
-
-			<form action="<%=request.getContextPath()%>/registConfirm" method="post">
-				<jsp:include page="/WEB-INF/jsp/common/input.jsp" />
-				<input class="submit-btn" id="create-confirm-btn" type="submit" value="確認">
-			</form>
-			<a href="<%=request.getContextPath() %>/list">
-			    <button class="cancel-btn" id="create-cancel-btn">戻る</button></a>
+			<h1>${h1word}</h1>
+			<p>
+			  <c:if test="${not empty msg}">
+				<c:out value="${msg}" />
+			  </c:if>
+			</p>
+			<a href="<%=request.getContextPath()%>/list">一覧へ</a>
 		</main>
 	</div>
 	<!-- #content -->
