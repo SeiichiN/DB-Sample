@@ -63,6 +63,9 @@ public class EmployeeDAO {
 			+ " state_id = ?, birthday = ?, dept_id = ?"
 			+ " WHERE id = ?";	
 
+	private final String SQL_DELETE =
+			"DELETE FROM employee WHERE id = ?";	
+
 	
 	public int getSize() {
 		int count = 0;
@@ -235,6 +238,22 @@ public class EmployeeDAO {
 			pStmt.setString(5, Tool.convDate(birthday));
 			pStmt.setString(6, employee.getDept().getDid());
 			pStmt.setInt(7,  employee.getId());
+			int result = pStmt.executeUpdate();
+			if (result != 1) {
+				return false;
+			}
+		} catch (SQLException e) {
+			// throw new SQLRuntimeException(e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	public boolean delete(int id) {
+		try (Connection conn = DriverManager.getConnection(DBConst.DB_URL, DBConst.DB_USER, DBConst.DB_PASS)) {
+			PreparedStatement pStmt = conn.prepareStatement(SQL_DELETE);
+			pStmt.setInt(1, id);
 			int result = pStmt.executeUpdate();
 			if (result != 1) {
 				return false;

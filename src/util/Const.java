@@ -15,6 +15,7 @@ public class Const {
 	
 	public static final String H1WORD_REGIST = "新規社員登録";
 	public static final String H1WORD_UPDATE = "社員編集";
+	public static final String H1WORD_DELETE = "削除処理";
 	
 	public static final String[][] state = {
 			{"01", "北海道"},

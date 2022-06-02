@@ -32,7 +32,7 @@ public class RegistDoneServlet extends HttpServlet {
 			msg = "登録に失敗しました。";
 		}
 
-		String url = "/WEB-INF/jsp/registUpdate/registUpdateDone.jsp";
+		String url = "/WEB-INF/jsp/registUpdate/ruDone.jsp";
 		request.setAttribute("h1word", Const.H1WORD_REGIST);
 		request.setAttribute("msg", msg);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);

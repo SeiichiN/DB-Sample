@@ -1,6 +1,7 @@
-package servlet.update;
+package servlet.delete;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,13 +12,10 @@ import model.FindEmployeeByIdLogic;
 import model.bean.Employee;
 import util.Tool;
 
-@WebServlet("/edit")
-public class UpdateInputServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
+@WebServlet("/delete")
+public class DeleteConfirmServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id = Tool.myParseInt(request.getParameter("id"), 0);
@@ -28,7 +26,7 @@ public class UpdateInputServlet extends HttpServlet {
 			emp = new Employee();
 			logic.execute(id, emp);
 			request.setAttribute("emp", emp);
-			url = "/WEB-INF/jsp/update/updateInput.jsp";
+			url = "/WEB-INF/jsp/delete/deleteConfirm.jsp";
 			request.getRequestDispatcher(url).forward(request, response);
 		} else {
 			url = request.getContextPath() + "/list";
