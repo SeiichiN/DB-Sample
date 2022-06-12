@@ -1,5 +1,7 @@
 package util;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,14 +24,17 @@ public class Tool {
 	}
 
 	/**
-	 * "1979/05/07" 形式の日付文字列を "1979-05-07" 形式にする
+	 * "1979/05/07" 形式の日付文字列を "1979-05-07" 形式にする。
+	 * それから sql.Date 型に変換する。
 	 * @param date String "1979/05/07"形式
-	 * @return String "1979-05-07"形式
+	 * @return sql.Date 
  	 */
-	public static String convDate(String date) {
+	public static Date convDate(String dateTxt) {
 		Pattern p = Pattern.compile("/");
-		Matcher m = p.matcher(date);
-		return m.replaceAll("-");
+		Matcher m = p.matcher(dateTxt);
+		String _date = null;
+		_date = m.replaceAll("-");
+		return Date.valueOf(_date);
 	}
 	
 	/**

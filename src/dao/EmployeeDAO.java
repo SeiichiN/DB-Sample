@@ -213,7 +213,7 @@ public class EmployeeDAO {
 			pStmt.setString(3, employee.getGender().getGid());
 			pStmt.setString(4, employee.getState().getSid());
 			String birthday = employee.getBirthday();
-			pStmt.setString(5, Tool.convDate(birthday));
+			pStmt.setDate(5, Tool.convDate(birthday));
 			pStmt.setString(6, employee.getDept().getDid());
 			int result = pStmt.executeUpdate();
 			if (result != 1) {
@@ -235,7 +235,7 @@ public class EmployeeDAO {
 			pStmt.setString(3, employee.getGender().getGid());
 			pStmt.setString(4, employee.getState().getSid());
 			String birthday = employee.getBirthday();
-			pStmt.setString(5, Tool.convDate(birthday));
+			pStmt.setDate(5, Tool.convDate(birthday));
 			pStmt.setString(6, employee.getDept().getDid());
 			pStmt.setInt(7,  employee.getId());
 			int result = pStmt.executeUpdate();
